@@ -15,15 +15,15 @@ export default function HeroSection() {
     { carType: "Hatchback", quantity: 16 },
   ];
   interface Capacity {
-    seatCapacity: string;
+    seatCapacity: number;
     quantity: number;
   }
 
   const capacities: Capacity[] = [
-    { seatCapacity: "2 People", quantity: 14 },
-    { seatCapacity: "4 People", quantity: 12 },
-    { seatCapacity: "6 People", quantity: 16 },
-    { seatCapacity: "8 People", quantity: 10 },
+    { seatCapacity: 2, quantity: 14 },
+    { seatCapacity: 4, quantity: 12 },
+    { seatCapacity: 6, quantity: 16 },
+    { seatCapacity: 8, quantity: 10 },
   ];
 
   const carData = [
