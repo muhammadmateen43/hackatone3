@@ -2,10 +2,12 @@ import LeftSection from "./leftSection";
 import RightSection from "./rightSection";
 
 export default function HeroSection() {
+  // Define Car Type Interface
   interface Car {
     carType: string;
     quantity: number;
   }
+
   const cars: Car[] = [
     { carType: "Sport", quantity: 14 },
     { carType: "SUV", quantity: 12 },
@@ -14,6 +16,8 @@ export default function HeroSection() {
     { carType: "Coupon", quantity: 14 },
     { carType: "Hatchback", quantity: 16 },
   ];
+
+  // Define Capacity Interface
   interface Capacity {
     seatCapacity: number;
     quantity: number;
@@ -26,48 +30,45 @@ export default function HeroSection() {
     { seatCapacity: 8, quantity: 10 },
   ];
 
-  const carData = [
+  // Corrected Interface Naming (Use PascalCase)
+  interface CarData {
+    id: number;
+    name: string;
+    model: string;
+    year: number;
+    price: number;
+    patrolQuantity: number;
+    typeOfTransmission: string;
+    seatsCapacity: number;
+    imageUrl: string;
+  }
+
+  // Car Data Array
+  const carsData: CarData[] = [
     {
       id: 1,
-      carName: "Koenigsegg",
-      type: "SUV",
-      patrolQuantity: "90L",
-      typeOfTransmission: "Manual",
-      seatsCapacity: "6 People",
-      pricePerDay: "$74.00",
-      image: "/koenigsegg.webp",
+      name: "koenigsegg",
+      model: "XLE",
+      year: 2023,
+      price: 25000,
+      patrolQuantity: 20,
+      typeOfTransmission: "Automatic",
+      imageUrl: "/koenigsegg.webp",
+      seatsCapacity: 4,
     },
     {
       id: 2,
-      carName: "Nissan GT-R",
-      type: "SUV",
-      patrolQuantity: "80L",
+      name: "nisangt-r",
+      model: "Sport",
+      year: 2022,
+      seatsCapacity: 4,
+      price: 23000,
+      patrolQuantity: 18,
       typeOfTransmission: "Automatic",
-      seatsCapacity: "8 People",
-      pricePerDay: "$80.00",
-      image: "/nisangt-r.webp",
-    },
-    {
-      id: 3,
-      carName: "Rolls Royce",
-      type: "Sedan",
-      patrolQuantity: "80L",
-      typeOfTransmission: "Automatic",
-      seatsCapacity: "8 People",
-      pricePerDay: "$80.00",
-      image: "/rollsroyce.webp",
-    },
-    {
-      id: 4,
-      carName: "Sports Car",
-      type: "Sport",
-      patrolQuantity: "80L",
-      typeOfTransmission: "Automatic",
-      seatsCapacity: "2 People",
-      pricePerDay: "$200.00",
-      image: "/sportscar.webp",
+      imageUrl: "/nisangt-r.webp",
     },
   ];
+
   return (
     <>
       {/* Hero Section */}
@@ -76,7 +77,7 @@ export default function HeroSection() {
         <LeftSection cars={cars} capacities={capacities} />
 
         {/* Right Section */}
-        <RightSection carData={carData} />
+        <RightSection carsData={carsData} />
       </div>
     </>
   );
