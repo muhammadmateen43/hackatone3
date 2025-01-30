@@ -36,7 +36,7 @@ export default function HeroSection() {
     name: string;
     model: string;
     year: number;
-    price: number;
+    pricePerDay: number;
     patrolQuantity: number;
     typeOfTransmission: string;
     seatsCapacity: number;
@@ -44,13 +44,13 @@ export default function HeroSection() {
   }
 
   // Car Data Array
-  const carsData: CarData[] = [
+  const carData: CarData[] = [
     {
       id: 1,
       name: "koenigsegg",
       model: "XLE",
       year: 2023,
-      price: 25000,
+      pricePerDay: 25000,
       patrolQuantity: 20,
       typeOfTransmission: "Automatic",
       imageUrl: "/koenigsegg.webp",
@@ -62,7 +62,7 @@ export default function HeroSection() {
       model: "Sport",
       year: 2022,
       seatsCapacity: 4,
-      price: 23000,
+      pricePerDay: 23000,
       patrolQuantity: 18,
       typeOfTransmission: "Automatic",
       imageUrl: "/nisangt-r.webp",
@@ -77,7 +77,7 @@ export default function HeroSection() {
         <LeftSection cars={cars} capacities={capacities} />
 
         {/* Right Section */}
-        <RightSection carsData={carsData} />
+        <RightSection carData={carData} />
       </div>
     </>
   );
