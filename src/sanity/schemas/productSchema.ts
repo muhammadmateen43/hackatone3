@@ -24,13 +24,33 @@ export const Product = defineType({
     },
     {
       name: "description",
-      title: "description",
+      title: "Description",
       type: "string",
+    },
+    {
+      name: "patrol_quantity",
+      title: "Patrol Quantity",
+      type: "number",
     },
     {
       name: "price",
       title: "Price",
       type: "number",
+    },
+    {
+      name: "car_type",
+      title: "Car Type",
+      type: "string",
+    },
+    {
+      name: "seats_capacity",
+      title: "Seats Capacity",
+      type: "number",
+    },
+    {
+      name: "model",
+      title: "Model",
+      type: "string",
     },
   ],
 });

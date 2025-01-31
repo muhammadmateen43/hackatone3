@@ -31,43 +31,32 @@ export default function HeroSection() {
   ];
 
   // Corrected Interface Naming (Use PascalCase)
-  interface CarData {
-    id: number;
-    name: string;
-    model: string;
-    year: number;
-    pricePerDay: number;
-    patrolQuantity: number;
-    typeOfTransmission: string;
-    seatsCapacity: number;
-    imageUrl: string;
-  }
+  // interface CarData {
+  //   id: number;
+  //   name: string;
+  //   model: string;
+  //   year: number;
+  //   pricePerDay: number;
+  //   patrolQuantity: number;
+  //   typeOfTransmission: string;
+  //   seatsCapacity: number;
+  //   imageUrl: string;
+  // }
 
   // Car Data Array
-  const carData: CarData[] = [
-    {
-      id: 1,
-      name: "koenigsegg",
-      model: "XLE",
-      year: 2023,
-      pricePerDay: 25000,
-      patrolQuantity: 20,
-      typeOfTransmission: "Automatic",
-      imageUrl: "/koenigsegg.webp",
-      seatsCapacity: 4,
-    },
-    {
-      id: 2,
-      name: "nisangt-r",
-      model: "Sport",
-      year: 2022,
-      seatsCapacity: 4,
-      pricePerDay: 23000,
-      patrolQuantity: 18,
-      typeOfTransmission: "Automatic",
-      imageUrl: "/nisangt-r.webp",
-    },
-  ];
+  // const carData: CarData[] = [
+  //   {
+  //     id: 1,
+  //     name: "koenigsegg",
+  //     model: "XLE",
+  //     year: 2023,
+  //     pricePerDay: 25000,
+  //     patrolQuantity: 20,
+  //     typeOfTransmission: "Automatic",
+  //     imageUrl: "/koenigsegg.webp",
+  //     seatsCapacity: 4,
+  //   },
+  // ];
 
   return (
     <>
@@ -77,7 +66,8 @@ export default function HeroSection() {
         <LeftSection cars={cars} capacities={capacities} />
 
         {/* Right Section */}
-        <RightSection carData={carData} />
+        {/* <RightSection carData={carData} /> */}
+        <RightSection />
       </div>
     </>
   );

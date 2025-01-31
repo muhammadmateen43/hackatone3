@@ -2,6 +2,7 @@ import React from "react";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import HeroSection from "./components/heroSection";
+import Footer from "./components/footer";
 
 const App = async () => {
   const products = await client.fetch(groq`[_type == "product"]`);
@@ -10,6 +11,7 @@ const App = async () => {
   return (
     <div>
       <HeroSection />
+      <Footer></Footer>
     </div>
   );
 };
