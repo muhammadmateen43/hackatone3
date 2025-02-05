@@ -84,9 +84,12 @@ const Navbar = () => {
           <a href="#" className="py-2 text-gray-700 hover:text-blue-600">
             Notifications
           </a>
-          <a href="#" className="py-2 text-gray-700 hover:text-blue-600">
-            Settings
-          </a>
+          <button onClick={handleClick} className="relative text-[20px]">
+            <FaShoppingCart className="text-gray-500 text-xl mx-2 cursor-pointer hover:text-blue-600" />
+            <span className="hidden md:block absolute text-[12px] top-[-8px] right-[-5px] bg-red-500 w-[18px] h-[18px] rounded-full text-center mb-3">
+              {totalQuantity}
+            </span>
+          </button>
         </div>
       )}
     </>
