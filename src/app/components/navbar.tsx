@@ -1,14 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { FaSearch, FaBell, FaShoppingCart } from "react-icons/fa";
+import { FaSearch, FaBell, FaShoppingCart, FaHeart } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LuArrowLeftRight } from "react-icons/lu";
 import { IoMdSettings } from "react-icons/io";
-import React, { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/cartContext";
+import Cart from "./cart";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { totalQuantity, showCart, setShowCart }: any = useContext(CartContext);
+
+  const handleClick = () => {
+    setShowCart(!showCart);
+    console.log("Cart open status:", showCart);
+  };
 
   return (
     <>
@@ -40,13 +48,13 @@ const Navbar = () => {
 
         {/* Profile Icons */}
         <div className="flex items-center">
-          <div className="relative text-[20px]">
+          <button onClick={handleClick} className="relative text-[20px]">
             <FaShoppingCart className="hidden md:block text-gray-500 text-xl mx-2 cursor-pointer hover:text-blue-600" />
-            <span className=" hidden md:block absolute text-[12px] top-[-8px] right-[-5px] bg-red-500 w-[18px] h-[18px] rounded-full text-center mb-3 ">
-              0
+            <span className="hidden md:block absolute text-[12px] top-[-8px] right-[-5px] bg-red-500 w-[18px] h-[18px] rounded-full text-center mb-3">
+              {totalQuantity}
             </span>
-          </div>
-          <FaBell className="hidden md:block text-gray-500 text-xl mx-2 cursor-pointer hover:text-blue-600" />
+          </button>
+          <FaHeart className="hidden md:block text-gray-500 text-xl mx-2 cursor-pointer hover:text-blue-600" />
           <IoMdSettings className="hidden md:block text-gray-500 text-xl mx-2 cursor-pointer hover:text-blue-600" />
           <Image
             src="/mateen.jpg"
@@ -57,6 +65,15 @@ const Navbar = () => {
           />
         </div>
       </nav>
+
+      {/* Sidebar Cart */}
+      <div
+        className={`fixed top-0 right-0 h-full w-96 bg-white shadow-lg transition-transform duration-300 transform ${
+          showCart ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <Cart />
+      </div>
 
       {/* Mobile Menu */}
       {menuOpen && (

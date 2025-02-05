@@ -42,7 +42,7 @@ export default function LeftSection({
   };
 
   return (
-    <div className="hidden md:block bg-gray-100 p-4 w-full md:w-80 rounded-lg shadow-md">
+    <div className="hidden md:hidden lg:block bg-gray-100 p-4 w-full md:w-80 rounded-lg shadow-md">
       <h1 className="font-thin text-gray-600 mb-2">Type</h1>
       {cars.map((data) => (
         <div

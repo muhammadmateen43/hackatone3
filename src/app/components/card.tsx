@@ -60,13 +60,13 @@ const Card: React.FC<{ data: Product }> = ({ data }) => {
       <div className="flex justify-between items-center mt-4">
         <p className="text-xl font-bold text-gray-900">
           ${data.price}
-          <span>/ day</span>
+          <span></span>
         </p>
         <Link
           href={`/data/${data.slug.current}`} // ✅ Fixed incorrect string interpolation
-          className="bg-blue-600 text-white px-3 py-1 rounded-lg hover:bg-blue-700 transition"
+          className="bg-gray-600 text-white px-3 mr-1 py-1 rounded-lg hover:bg-gray-700 transition "
         >
-          Rent Now
+          view details
         </Link>
       </div>
     </div>

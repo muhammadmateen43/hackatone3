@@ -19,3 +19,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.product-container {
+  @apply mt-[15px] overflow-auto max-h-[70vh] px-[20px] py-[10px];
+}
