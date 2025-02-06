@@ -56,11 +56,12 @@ const CardDetails: React.FC<CardDetailsProps> = ({ product }) => {
             ?.slice(1, 4)
             .map((img: string, index: number) => (
               <Image
-                src={urlForImage(product.images[0]).url()}
+                key={index}
+                src={urlForImage(img).url()}
                 alt={product.name}
-                height={200}
-                width={400}
-                className="w-full mt-2 rounded-md"
+                height={80}
+                width={80}
+                className="w-20 h-20 mt-2 rounded-md"
               />
             ))}
         </div>
@@ -95,7 +96,9 @@ const CardDetails: React.FC<CardDetailsProps> = ({ product }) => {
         <div className="flex flex-col sm:flex-row justify-between items-center mt-6">
           {/* Price Display */}
           <div className="text-center sm:text-left mb-4 sm:mb-0">
-            <span className="text-2xl font-bold">totalPrice</span>
+            <span className="text-2xl font-bold">
+              ${(product.price * qty).toFixed(2)}
+            </span>
             <p className="text-gray-400 text-sm line-through">
               {/* ${Math.round(product.price * 1.25) * quantity} */}
             </p>

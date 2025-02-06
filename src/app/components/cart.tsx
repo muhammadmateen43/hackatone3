@@ -16,17 +16,24 @@ const Cart = () => {
     setShowCart,
   }: any = useContext(CartContext);
 
-  const handleClose = () => setShowCart(!showCart);
+  const handleClose = () => {
+    setShowCart(!showCart);
+  };
 
   const handleCheckout = async () => {
     try {
       const response = await fetch("/api/checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ products: cartItems }),
       });
+
       const data = await response.json();
-      if (data.url) window.location.href = data.url;
+      if (data.url) {
+        window.location.href = data.url;
+      }
     } catch (error) {
       console.error("Error during checkout", error);
     }
@@ -34,14 +41,14 @@ const Cart = () => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-50">
-      <div className="w-full sm:w-[400px] bg-white h-full shadow-lg flex flex-col">
+      <div className="w-full sm:w-[420px] bg-white h-full shadow-lg flex flex-col">
         {/* Header */}
-        <div className="p-4 flex items-center justify-between border-b">
+        <div className="p-4 flex items-center justify-between border-b bg-gray-100">
           <button
-            className="flex items-center text-gray-600"
+            className="flex items-center text-gray-700 hover:text-gray-900 transition"
             onClick={handleClose}
           >
-            <AiOutlineLeft className="mr-2" />
+            <AiOutlineLeft className="mr-2 text-xl" />
             <span className="text-lg font-medium">Your Cart</span>
             <span className="ml-2 bg-red-500 text-white text-sm px-2 py-1 rounded-full">
               {totalQuantity}
@@ -71,14 +78,16 @@ const Cart = () => {
                   <p className="text-gray-600 text-sm">${product.price}</p>
                   <div className="flex items-center mt-2">
                     <button
-                      className="bg-gray-300 p-1 rounded-md"
+                      className="bg-gray-300 p-2 rounded-md hover:bg-gray-400 transition"
                       onClick={() => toggleCartItemQty(product._id, "minus")}
                     >
                       <AiOutlineMinus className="text-gray-700" />
                     </button>
-                    <span className="mx-2 text-lg">{product.quantity}</span>
+                    <span className="mx-3 text-lg font-semibold">
+                      {product.quantity}
+                    </span>
                     <button
-                      className="bg-gray-300 p-1 rounded-md"
+                      className="bg-gray-300 p-2 rounded-md hover:bg-gray-400 transition"
                       onClick={() => toggleCartItemQty(product._id, "plus")}
                     >
                       <AiOutlinePlus className="text-gray-700" />
@@ -87,7 +96,7 @@ const Cart = () => {
                 </div>
                 <button
                   onClick={() => onRemove(product)}
-                  className="text-red-500"
+                  className="text-red-500 hover:text-red-700 transition"
                 >
                   <TiDeleteOutline size={24} />
                 </button>
@@ -98,7 +107,7 @@ const Cart = () => {
 
         {/* Cart Footer */}
         {cartItems.length > 0 && (
-          <div className="p-4 border-t bg-white">
+          <div className="p-4 border-t bg-gray-100">
             <div className="flex justify-between text-lg font-semibold">
               <h3>Subtotal</h3>
               <h3>${totalPrice}</h3>
